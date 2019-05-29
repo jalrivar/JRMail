@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "Content/minty.bootstrap.min.css",
+    "inputFiles": [
+      "Content/minty.bootstrap.css"
+    ]
+  }
+]

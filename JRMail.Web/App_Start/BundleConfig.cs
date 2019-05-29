@@ -23,7 +23,7 @@ namespace JRMail.Web
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/minty.bootstrap.css",
                       "~/Content/site.css"));
         }
     }
