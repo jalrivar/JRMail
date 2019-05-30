@@ -29,11 +29,9 @@ namespace JRMail.DAL
         [StringLength(250)]
         public string To { get; set; }
 
-        [Required]
         [StringLength(250)]
         public string CC { get; set; }
 
-        [Required]
         [StringLength(250)]
         public string BCC { get; set; }
 

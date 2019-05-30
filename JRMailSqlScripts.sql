@@ -40,8 +40,8 @@ CREATE TABLE JRM.MailMessage
  MailMessageStatusId INT NOT NULL, 
  UserName            NVARCHAR(256) NOT NULL, 
  [To]                VARCHAR(250) NOT NULL, 
- [CC]                VARCHAR(250) NOT NULL, 
- [BCC]               VARCHAR(250) NOT NULL, 
+ [CC]                VARCHAR(250) NULL, 
+ [BCC]               VARCHAR(250) NULL, 
  [From]              VARCHAR(250) NOT NULL, 
  [Subject]           VARCHAR(250) NOT NULL, 
  Body                VARCHAR(3999) NOT NULL, 
@@ -69,5 +69,8 @@ CREATE TABLE JRM.MailMessageClassifaction
 /********************************************************************************************************************************************************************************************/
 --Inserts para catalogos
 /********************************************************************************************************************************************************************************************/
-INSERT INTO JRM.MailBox (MailBoxName) VALUES ('Inbox');
-INSERT INTO JRM.MailBox (MailBoxName) VALUES ('Sentbox');
+INSERT INTO JRM.MailBox(MailBoxName)
+VALUES('Inbox'), ('Sentbox');
+
+INSERT INTO JRM.MailMessageStatus(MailMessageStatusName)
+VALUES('Draft'), ('Sent');
