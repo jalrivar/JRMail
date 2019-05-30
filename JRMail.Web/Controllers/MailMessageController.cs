@@ -7,12 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using JRMail.DAL;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace JRMail.Web.Controllers
 {
     public class MailMessageController : Controller
     {
         private ModelJRMail db = new ModelJRMail();
+        private ApplicationUserManager _userManager;
 
         [Authorize]
         // GET: MailMessage
@@ -63,6 +66,16 @@ namespace JRMail.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                //5. Creación y envío de correo a otro usuario registrado.
+                var user = UserManager.FindByName(mailMessage.To);
+                if (user == null)
+                {
+                    ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
+                    ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
+                    return View(new Models.MailMessageViewModel(mailMessage));
+                }
+
                 db.MailMessage.Add(mailMessage);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -71,6 +84,18 @@ namespace JRMail.Web.Controllers
             ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
             ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
             return View(mailMessage);
+        }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
         }
 
         [Authorize]
