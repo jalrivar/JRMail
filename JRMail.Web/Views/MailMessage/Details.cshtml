@@ -10,60 +10,45 @@
     <h4>MailMessage</h4>
     <hr />
     <dl class="dl-horizontal">
+
         <dt>
-            @Html.DisplayNameFor(model => model.MailBox.MailBoxName)
+            
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MailBox.MailBoxName)
+            @Html.DisplayNameFor(model => model.Date): @Html.DisplayFor(model => model.Date)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MailMessageStatus.MailMessageStatusName)
+            
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MailMessageStatus.MailMessageStatusName)
+            @Html.DisplayNameFor(model => model.From): @Html.DisplayFor(model => model.From)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.UserName)
+            @Html.DisplayNameFor(model => model.To): @Html.DisplayFor(model => model.To)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.To)
+            
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.To)
+            @Html.DisplayNameFor(model => model.CC): @Html.DisplayFor(model => model.CC)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CC)
+            
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CC)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BCC)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BCC)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.From)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.From)
+            @Html.DisplayNameFor(model => model.BCC): @Html.DisplayFor(model => model.BCC)
         </dd>
 
         <dt>
@@ -81,23 +66,6 @@
         <dd>
             @Html.DisplayFor(model => model.Body)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Readed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Readed)
-        </dd>
-
     </dl>
 </div>
 <p>
