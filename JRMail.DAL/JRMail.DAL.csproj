@@ -50,59 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JRMailModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JRMailModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JRMailModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JRMailModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="JRMailModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JRMailModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="MailBox.cs">
-      <DependentUpon>JRMailModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MailClassification.cs">
-      <DependentUpon>JRMailModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MailMessage.cs">
-      <DependentUpon>JRMailModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MailMessageClassifaction.cs">
-      <DependentUpon>JRMailModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="MailBox.cs" />
+    <Compile Include="MailClassification.cs" />
+    <Compile Include="MailMessage.cs" />
+    <Compile Include="MailMessageClassifaction.cs" />
+    <Compile Include="ModelJRMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="JRMailModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JRMailModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="JRMailModel.edmx.diagram">
-      <DependentUpon>JRMailModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="JRMailModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JRMailModel.edmx</DependentUpon>
-      <LastGenOutput>JRMailModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="JRMailModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JRMailModel.edmx</DependentUpon>
-      <LastGenOutput>JRMailModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
