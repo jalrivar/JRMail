@@ -33,11 +33,20 @@ namespace JRMail.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             MailMessage mailMessage = db.MailMessage.Find(id);
             if (mailMessage == null)
             {
                 return HttpNotFound();
             }
+
+            if (ModelState.IsValid)
+            {
+                mailMessage.Readed = true;
+                db.Entry(mailMessage).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+
             return View(mailMessage);
         }
 
