@@ -77,13 +77,13 @@ namespace JRMail.Web.Controllers
             {
 
                 //5. Creación y envío de correo a otro usuario registrado.
-                var user = UserManager.FindByName(mailMessage.To);
-                if (user == null)
-                {
-                    ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
-                    ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
-                    return View(new Models.MailMessageViewModel(mailMessage));
-                }
+                //var user = UserManager.FindByName(mailMessage.To);
+                //if (user == null)
+                //{
+                //    ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
+                //    ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
+                //    return View(new Models.MailMessageViewModel(mailMessage));
+                //}
 
                 db.MailMessage.Add(mailMessage);
                 db.SaveChanges();
