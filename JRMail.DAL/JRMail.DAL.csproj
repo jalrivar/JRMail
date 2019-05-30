@@ -54,6 +54,7 @@
     <Compile Include="MailClassification.cs" />
     <Compile Include="MailMessage.cs" />
     <Compile Include="MailMessageClassifaction.cs" />
+    <Compile Include="MailMessageStatus.cs" />
     <Compile Include="ModelJRMail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -19,6 +19,8 @@ namespace JRMail.DAL
 
         public int MailBoxId { get; set; }
 
+        public int MailMessageStatusId { get; set; }
+
         [Required]
         [StringLength(256)]
         public string UserName { get; set; }
@@ -49,11 +51,13 @@ namespace JRMail.DAL
 
         public DateTime Date { get; set; }
 
-        public int MailStatus { get; set; }
+        public bool Readed { get; set; }
 
         public virtual MailBox MailBox { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MailMessageClassifaction> MailMessageClassifaction { get; set; }
+
+        public virtual MailMessageStatus MailMessageStatus { get; set; }
     }
 }

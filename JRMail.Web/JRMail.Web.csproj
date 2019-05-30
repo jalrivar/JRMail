@@ -174,9 +174,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MailClassificationsController.cs" />
-    <Compile Include="Controllers\MailMessageClassifactionsController.cs" />
-    <Compile Include="Controllers\MailMessagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -289,21 +286,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\MailMessageClassifactions\Create.cshtml" />
-    <Content Include="Views\MailMessageClassifactions\Delete.cshtml" />
-    <Content Include="Views\MailMessageClassifactions\Details.cshtml" />
-    <Content Include="Views\MailMessageClassifactions\Edit.cshtml" />
-    <Content Include="Views\MailMessageClassifactions\Index.cshtml" />
-    <Content Include="Views\MailMessages\Create.cshtml" />
-    <Content Include="Views\MailMessages\Delete.cshtml" />
-    <Content Include="Views\MailMessages\Details.cshtml" />
-    <Content Include="Views\MailMessages\Edit.cshtml" />
-    <Content Include="Views\MailMessages\Index.cshtml" />
-    <Content Include="Views\MailClassifications\Create.cshtml" />
-    <Content Include="Views\MailClassifications\Delete.cshtml" />
-    <Content Include="Views\MailClassifications\Details.cshtml" />
-    <Content Include="Views\MailClassifications\Edit.cshtml" />
-    <Content Include="Views\MailClassifications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

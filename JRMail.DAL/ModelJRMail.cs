@@ -16,6 +16,7 @@ namespace JRMail.DAL
         public virtual DbSet<MailClassification> MailClassification { get; set; }
         public virtual DbSet<MailMessage> MailMessage { get; set; }
         public virtual DbSet<MailMessageClassifaction> MailMessageClassifaction { get; set; }
+        public virtual DbSet<MailMessageStatus> MailMessageStatus { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,6 +65,15 @@ namespace JRMail.DAL
             modelBuilder.Entity<MailMessage>()
                 .HasMany(e => e.MailMessageClassifaction)
                 .WithRequired(e => e.MailMessage)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MailMessageStatus>()
+                .Property(e => e.MailMessageStatusName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<MailMessageStatus>()
+                .HasMany(e => e.MailMessage)
+                .WithRequired(e => e.MailMessageStatus)
                 .WillCascadeOnDelete(false);
         }
     }

@@ -19,6 +19,7 @@ DROP TABLE IF EXISTS JRM.MailClassification;
 
 DROP TABLE IF EXISTS JRM.MailMessage;
 DROP TABLE IF EXISTS JRM.MailBox;
+DROP TABLE IF EXISTS JRM.MailMessageStatus;
 
 CREATE TABLE JRM.MailBox
 (MailBoxId   INT
@@ -26,20 +27,28 @@ CREATE TABLE JRM.MailBox
  MailBoxName VARCHAR(50)
 );
 
-CREATE TABLE JRM.MailMessage
-(MailMessageId INT
+CREATE TABLE JRM.MailMessageStatus
+(MailMessageStatusId   INT
  PRIMARY KEY IDENTITY(1, 1) NOT NULL, 
- MailBoxId     INT NOT NULL, 
- UserName      NVARCHAR(256) NOT NULL, 
- [To]          VARCHAR(250) NOT NULL, 
- [CC]          VARCHAR(250) NOT NULL, 
- [BCC]         VARCHAR(250) NOT NULL, 
- [From]        VARCHAR(250) NOT NULL, 
- [Subject]     VARCHAR(250) NOT NULL, 
- Body          VARCHAR(3999) NOT NULL, 
- [Date]        DATETIME NOT NULL, 
- MailStatus    INT NOT NULL, 
- CONSTRAINT FK_MailBox_MailMessage FOREIGN KEY(MailBoxId) REFERENCES JRM.MailBox(MailBoxId)
+ MailMessageStatusName VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE JRM.MailMessage
+(MailMessageId       INT
+ PRIMARY KEY IDENTITY(1, 1) NOT NULL, 
+ MailBoxId           INT NOT NULL, 
+ MailMessageStatusId INT NOT NULL, 
+ UserName            NVARCHAR(256) NOT NULL, 
+ [To]                VARCHAR(250) NOT NULL, 
+ [CC]                VARCHAR(250) NOT NULL, 
+ [BCC]               VARCHAR(250) NOT NULL, 
+ [From]              VARCHAR(250) NOT NULL, 
+ [Subject]           VARCHAR(250) NOT NULL, 
+ Body                VARCHAR(3999) NOT NULL, 
+ [Date]              DATETIME NOT NULL, 
+ Readed              BIT NOT NULL, 
+ CONSTRAINT FK_MailBox_MailMessage FOREIGN KEY(MailBoxId) REFERENCES JRM.MailBox(MailBoxId), 
+ CONSTRAINT FK_MailMessageStatus_MailMessage FOREIGN KEY(MailMessageStatusId) REFERENCES JRM.MailMessageStatus(MailMessageStatusId)
 );
 
 CREATE TABLE JRM.MailClassification
