@@ -10,5 +10,11 @@ namespace JRMail.Web.Models
     {
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public new DateTime Date { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address.")]
+        public new string To { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address.")]
+        public new string CC { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address.")]
+        public new string BCC { get; set; }
     }
 }
