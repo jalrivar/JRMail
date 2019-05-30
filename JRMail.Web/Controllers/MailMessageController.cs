@@ -47,6 +47,8 @@ namespace JRMail.Web.Controllers
 
             var model = new MailMessage();
             model.UserName = User.Identity.Name;
+            model.From = User.Identity.Name;
+            model.Date = DateTime.Now;
 
             return View(model);
         }
@@ -66,43 +68,6 @@ namespace JRMail.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
-            ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
-            return View(mailMessage);
-        }
-
-        [Authorize]
-        // GET: MailMessage/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            MailMessage mailMessage = db.MailMessage.Find(id);
-            if (mailMessage == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
-            ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
-            return View(mailMessage);
-        }
-
-        [Authorize]
-        // POST: MailMessage/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MailMessageId,MailBoxId,MailMessageStatusId,UserName,To,CC,BCC,From,Subject,Body,Date,Readed")] MailMessage mailMessage)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(mailMessage).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName", mailMessage.MailBoxId);
             ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName", mailMessage.MailMessageStatusId);
             return View(mailMessage);

@@ -288,7 +288,6 @@
     <Content Include="Views\MailMessage\Create.cshtml" />
     <Content Include="Views\MailMessage\Delete.cshtml" />
     <Content Include="Views\MailMessage\Details.cshtml" />
-    <Content Include="Views\MailMessage\Edit.cshtml" />
     <Content Include="Views\MailMessage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
