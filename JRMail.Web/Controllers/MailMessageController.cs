@@ -44,7 +44,11 @@ namespace JRMail.Web.Controllers
         {
             ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName");
             ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName");
-            return View();
+
+            var model = new MailMessage();
+            model.UserName = User.Identity.Name;
+
+            return View(model);
         }
 
         [Authorize]
