@@ -1,4 +1,4 @@
-﻿@model JRMail.DAL.MailMessage
+﻿@model JRMail.Web.Models.MailMessageViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -16,25 +16,25 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.MailBoxId, "MailBoxId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.MailBoxId, "MailBoxId", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.DropDownList("MailBoxId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("MailBoxId", null, htmlAttributes: new { @style = "display:none" })
                 @Html.ValidationMessageFor(model => model.MailBoxId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MailMessageStatusId, "MailMessageStatusId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.MailMessageStatusId, "MailMessageStatusId", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.DropDownList("MailMessageStatusId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("MailMessageStatusId", null, htmlAttributes: new { @style = "display:none" })
                 @Html.ValidationMessageFor(model => model.MailMessageStatusId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,9 +64,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.From, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.From, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -88,18 +88,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Readed, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.Readed, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Readed)
+                    @Html.HiddenFor(model => model.Readed)
                     @Html.ValidationMessageFor(model => model.Readed, "", new { @class = "text-danger" })
                 </div>
             </div>

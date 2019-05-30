@@ -45,7 +45,7 @@ namespace JRMail.Web.Controllers
             ViewBag.MailBoxId = new SelectList(db.MailBox, "MailBoxId", "MailBoxName");
             ViewBag.MailMessageStatusId = new SelectList(db.MailMessageStatus, "MailMessageStatusId", "MailMessageStatusName");
 
-            var model = new MailMessage();
+            var model = new Models.MailMessageViewModel();
             model.UserName = User.Identity.Name;
             model.From = User.Identity.Name;
             model.Date = DateTime.Now;
