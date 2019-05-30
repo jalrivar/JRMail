@@ -18,7 +18,7 @@ namespace JRMail.Web.Controllers
         // GET: MailMessage
         public ActionResult Index()
         {
-            var mailMessage = db.MailMessage.Include(m => m.MailBox).Include(m => m.MailMessageStatus);
+            var mailMessage = db.MailMessage.Where(x => x.To == User.Identity.Name).Include(m => m.MailBox).Include(m => m.MailMessageStatus);
             return View(mailMessage.ToList());
         }
 
